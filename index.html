@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Modellierung von Zweifel</title>
+
+  <!-- meta information -->
+  <meta name="author" content="Torsten Schrade" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <!-- favicons -->
+  <link rel="shortcut icon" href="resources/img/favicon.png" />
+  <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+  <!-- CSS reset and grid -->
+  <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+  <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+
+  <!-- styles for included libraries -->
+
+  <!-- chartist -->
+  <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+  <!-- codemirror -->
+  <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+  <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+  <!-- magnific popup -->
+  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+  <!-- standard presentation styles -->
+  <link href="resources/css/style.css" rel="stylesheet" />
+
+  <!-- custom presentation styles -->
+  <link href="resources/css/custom.css" rel="stylesheet" />
+
+  <!-- js needed in head -->
+
+  <!-- greuler -->
+  <script src="vendor/d3/d3-3.5.6.js"></script>
+  <script src="vendor/cola/cola.v3.min.js"></script>
+  <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+  <!-- html5 dataset shim for IE -->
+  <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+  <div class="fallback-message">
+    <p>
+      Your browser <strong>doesn't support the features required</strong> by impress.mod.js, so you are presented with a simplified version of this presentation.
+    </p>
+    <p>
+      For the best experience please use the latest <strong>Chrome</strong>, <strong>Safari</strong> or <strong>Firefox</strong> browser.
+    </p>
+  </div>
+
+  <div id="impress">
+
+    <div class="step">
+      <h4><strong>19.01.2018</strong> | <a href="#">Akademie der Wissenschaften und der Literatur | Mainz</a></h4>
+      <h4><strong>Tagung: „Die Modellierung des Zweifels“ – Schlüsselideen und -konzepte zur graphbasierten Modellierung von Unsicherheiten</strong></h4>
+
+      <h1 class="down-25">Modellierung von Zweifel im Graphen</h1>
+
+      <h2 class="red">Vorbild TEI im
+Graphen</h2>
+
+      <h4 class="down-25">
+                <strong>Slides:</strong>
+                <a href="https://digicademy.github.io/2018-Graphentechnologie" title="View the presentation online">
+                   https://digicademy.github.io/2018-Graphentechnologie
+                </a>
+            </h4>
+
+      <h5>
+                <strong>Autoren: <a href="http://www.adwmainz.de/mitarbeiter/profil/dr-andreas-kuczera.html">Andreas Kuzcera</a></strong> | <strong><a href="http://www.adwmainz.de/mitarbeiter/profil/dominik-kasper.html">Dominik Kasper</a></strong>
+                <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter" class="twitter-icon" />
+                <a href="https://twitter.com/andreaskuczera" title="Dominik Kasper on Twitter">@andreaskuczera</a> |
+                <a href="https://twitter.com/eldoderino" title="Dominik Kasper on Twitter">@eldoderino</a> |
+                <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter">@digicademy</a> |
+                <img src="resources/img/Octicons-mark-github.svg" alt="Twitter" class="gh-icon" />
+                <a href="https://github.com/digicademy/" title="Digital Academy on GitHub">digicademy</a> |
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+                <br/>
+                <strong>Einführung & Beispielprojekte (Andreas Kuczera):</strong> <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/">Graphentechnologie</a> |
+                <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/NomenEtGens.html">NeG</a> | <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/RI.html">RI</a> | <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/DTA.html">DTA</a>
+            </h5>
+    </div>
+
+    <div class="step">
+      <h2>Inhalt</h2>
+      <ol class="line-height-one-five">
+        <li>
+          Modellierung von Zweifel und Unsicherheit nach den Richtlinien der TEI
+        </li>
+        <li>
+          XML im Graphen
+        </li>
+        <li>
+          Zweifelsattribute im DTA-Dokument
+        </li>
+        <li>
+          Zusammenfassung
+        </li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <h2>Zweifel und Unsicherheit: TEI</h2>
+      <h3 class="red up-25 after-25">Gegenstand des Vortrags</h3>
+      <div class="row">
+        <div class="twelve columns">
+          <ul>
+            <li class="substep">
+              Auszeichnung von <strong>unsicheren Lesarten</strong> in Handschriften
+            </li>
+            <li class="substep">
+              Darlegung der zugehörigen TEI-Richtlinien
+            </li>
+            <li class="substep">
+              Wichtig für die <strong>Interoperabilität</strong> der Daten und die <strong>intersubjektive Nachvollziehbarkeit</strong> von Einzelentscheidungen scheinen uns <em>certainty-</em> und <em>responsibility</em>-Angaben an zweifelhaften Stellen
+              zu sein.
+            </li>
+            <li class="substep">
+              Insbesondere, wenn zusätzlich Angaben zum <strong>Grad der Sicherheit</strong> einer Auflösung möglich sind.
+            </li>
+            <li class="substep">
+              Graphtechnologien bieten hier Möglichkeiten zur <strong>Modellierung und Visualisierung von Unsicherheit und Verantwortung</strong>.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="row">
+        <div class="twelve columns">
+          <h3>XML-Fragment aus Gotthilf Patzigs Mitschriften von Humboldts Vorträgen über physische Geographie, S. 13</h3>
+          <pre class="small">
+<code class="linenumbers xml">[...] So wie die Geogno&amp;#x017F;ie durch die Auf-
+&lt;lb /&gt; findung u. nähere Beachtung der thieri&amp;#x017F;chen Ver-
+&lt;lb /&gt; &amp;#x017F;teinerungen aufgeklärt wurde: &amp;#x017F;o hat
+&lt;lb /&gt; der phy&amp;#x017F;i&amp;#x017F;che Theil der A&amp;#x017F;tronomie durch
+&lt;lb /&gt; die Entdeckungen im Gebiet der Optik gewon&amp;#x0303;&lt;supplied
+  reason="damage" resp="#BF"&gt;en;&lt;/supplied&gt;
+&lt;lb /&gt; u. die Cometen &amp;#x017F;ind be&amp;#x017F;onders näher
+&lt;lb /&gt; beobachtet werden. Jn be&amp;#x017F;tändiger
+&lt;lb /&gt; Bewegung kan&amp;#x0303; man die&amp;#x017F;e eine perio-
+&lt;lb /&gt; di&amp;#x017F;ch o&amp;#x017F;cilirende nen&amp;#x0303;en. Die&amp;#x017F;e kan&amp;#x0303;
+&lt;lb /&gt; gehem&amp;#x0303;t, ge&amp;#x017F;töhrt werden auf viele Wei&amp;#x017F;e;
+&lt;lb /&gt; den&amp;#x0303; welch ein geringer Stoß von auß&lt;unclear
+  reason="illegible" cert="high" resp="#CT"&gt;en&lt;/unclear&gt;
+&lt;lb /&gt; dürfte dazu gehören &amp;#x017F;ie in Bewegung
+&lt;lb /&gt; zu &amp;#x017F;etzen, da die Dün&amp;#x0303;igkeit der&amp;#x017F;elben
+&lt;lb /&gt; Alles über&amp;#x017F;teigt was wie &amp;#x017F;elb&amp;#x017F;t von
+&lt;lb /&gt; Gas-Arten auf der Erde ken&amp;#x0303;en. Die&amp;#x017F;e
+&lt;lb /&gt; Dün&amp;#x0303;igkeit i&amp;#x017F;t 5000 mal geringer als die
+&lt;lb /&gt; Dichtigkeit der Erde. &amp;#x2013; Kom&amp;#x0303;en wir jetzt
+&lt;lb /&gt;&lt;note place="left"&gt;&lt;hi rendition="#u"&gt;Telluri&amp;#x017F;che
+  Verhältni&amp;#x017F;&amp;#x017F;e&lt;/hi&gt;
+&lt;lb /&gt;&lt;/note&gt;&lt;hi rendition="#u"&gt;zu den telluri&amp;#x017F;chen
+  Verhältni&amp;#x017F;&amp;#x017F;e, &lt;subst&gt;&lt;del rendition="#erased"&gt;&lt;gap
+  reason="illegible" /&gt;&lt;/del&gt;&lt;add place="across"&gt;&amp;#x017F;o
+  werd&lt;/add&gt;&lt;/subst&gt;en
+&lt;lb /&gt; wir die Form, Größe u. Dichtigkeit des
+&lt;lb /&gt; Planeten betrachten &amp;#x2013;&lt;/hi&gt;
+</code></pre>
+          <p>
+            <a href="http://www.deutschestextarchiv.de/book/view/patzig_msgermfol841842_1828/?p=13">Zur HTML-Ansicht</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="step">
+      <h2>Zweifel und Unsicherheit: TEI</h2>
+      <h3 class="red up-25 after-25">Codierung von Unsicherheiten in der Lesart und Lücken im Text</h3>
+      <div class="row">
+        <div class="twelve columns">
+          <h4>Überblick</h4>
+          <ul>
+            <li class="substep"><a class="tooltip" data-tooltip="unclear umschließt transkribierten Text, bei einer Stelle, an der noch etwas unsicher lesbar ist, aber ein Teil
+              durch Tilgung oder Schaden unlesbar wurde."><code>unclear</code></a> – gehört zum Modul: <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-unclear.html">core</a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="gap füllt Lücken an Textstellen aus (Es handelt sich um ein leeres Element), an denen durch Tilgung oder Schaden alles vollständig unlesbar"><code>gap</code></a> – gehört zum Modul: <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-gap.html">core</a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="supplied umschließt dann einen ggfs. editorisch ergänzten Teil, bei einer durch Tilgung oder Schaden vollständig unlesbaren Stelle im Text (gap)."><code>supplied</code></a> – gehört zum Modul: <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-supplied.html">transcr</a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="cert gibt den Sicherheitsgrad der aufgelösten unsicheren Lesung an (z. B. bei unclear) oder den Sicherheitsgrad der ergänzten Stelle bei supplied, in der Regel werde fixe Werte vorgegeben (high, low)."><code>@cert</code></a>              – gehört zur Attribut-Gruppe <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.global.responsibility.html">att.global.responsibility</a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="cresp beinhaltet einen Verweis auf den oder die Edierende, welche für die Auflösung der
+              unsicheren Lesart oder die Ergänzung verantwortlich zeichnet."><code>@resp</code></a> – gehört zur Attribut-Gruppe <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.global.responsibility.html">att.global.responsibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="step">
+      <h2>Zweifel und Unsicherheit: TEI</h2>
+      <h3 class="red up-25 after-25">Codierung von allgemeiner Unsicherheit, Verantwortlichkeit und Genauigkeit</h3>
+      <div class="row">
+        <div class="twelve columns">
+          <h4>Das Modul <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/CE.html">certainty</a></h4>
+          <ul>
+            <li class="substep"><a class="tooltip" data-tooltip="certainty dient der Coderierung von Unsicherheiten bei der Verwendung von Elemente und Attribute bzw. damit ausgezeichneter Bereiche und zielt damit prinzipiell auch die Inhaltsebene (z. B. ob es sich um einen Orts- oder Personenname handelt oder ob ein Absatz mit der Seite endet oder sich noch auf die nächste erstreckt.)"><code>certainty</code></a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="precision ermöglicht die Exaktheit bzw. Genauigkeit von nummerischen Aspekten des Markups (Datierungen, Einheiten, sonstige Zahlenwerte) graduell zu codieren bzw. näher zu beschreiben."><code>precision</code></a></li>
+            <li class="substep"><a class="tooltip" data-tooltip="response identifiert den oder die Edierende, welche für bestimmte Aspekte von Inhalt und Auszeichnung verantwortlich zeichnet. Es ist gegenüber dem cert-Attribut angesichts verschiedener Attributierungsmöglichkeiten deutlich
+              feingranularer."><code>response</code></a></li>
+          </ul>
+          <p class="substep">
+            Bietet detailierte Möglichkeiten bei hohem Codierungsaufwand: Elemente spielen in der Praxis von DTA, WeGA und PROPYLÄEN keine Rolle.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>Zweifel und Unsicherheit: TEI</h2>
+      <h3 class="red up-25 after-25">Codierung von allgemeiner Unsicherheit, Verantwortlichkeit und Genauigkeit</h3>
+      <div class="row">
+        <div class="twelve columns">
+          <h4>Wahrnehmung und Verwendung des Moduls <em>certainty</em> in der TEI-Community</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <figure class="mfp-lightbox">
+            <a href="data/Fig_18_In_what_areas_do_you_wish_the_Guidelines_to_be_improved.jpg" title="<p class='centered'>In welchen Teilen der TEI-Richtlinien besteht Verbesserungsbedarf?</p>">
+            <img src="data/Fig_18_In_what_areas_do_you_wish_the_Guidelines_to_be_improved.jpg" /></a>
+            <figcaption class="xx-small line-height-one ">
+              <em>Im Original</em> Figure 18: In what areas do you wish the Guidelines to be improved? . Figures are given in absolute numbers. </a>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="six columns">
+          <figure class="mfp-lightbox">
+            <a href="data/Fig_11_TEI-Modules_used_in_ms_encoding_projects _apart_from_basics.jpg" title="<p class='centered'>In Handschriften-Auszeichungsprojekten verwendete TEI-Module</p>">
+              <img src="data/Fig_11_TEI-Modules_used_in_ms_encoding_projects _apart_from_basics.jpg" /></a>
+            <figcaption class="xx-small line-height-one ">
+              <em>Im Original</em> Figure 11: TEI-Modules used in manuscript encoding projects (apart from the four basic ones: core, tei, header, textstructure)
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <p class="xx-small right">
+            <a href="#nachweise">Bildrechte</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>XML im Graphen</h2>
+      <div class="row">
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/unclear-Beispiel-in-XML.png" title="<p class='centered'>unclear-Element im DTA-Basisformat</p>"><img
+                                src="data/unclear-Beispiel-in-XML.png"
+                                alt="<unclear>-Element im DTA-Basisformat"></a>
+            <figcaption class="small">unclear-Element im DTA-Basisformat</figcaption>
+          </figure>
+        </div>
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/unclear-Beispiel.png" title="<p class='centered'>unclear-Element im Graphen</p>"><img
+                                src="data/unclear-Beispiel.png"
+                                alt="unclear-Element im Graphen"></a>
+            <figcaption class="small">unclear-Element im Graphen</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h5>XML-Attribute als Property des unclear-Knotens</h5>
+      <div class="row">
+        <div class="ten columns">
+          <figure class="mfp-lightbox"><a href="data/unclear-Beispiel-mit-Propertys.png" title="<p class='centered'>cert- und resp-Attribut und als Propertys des unclear-Knotens</p>"><img
+                                src="data/unclear-Beispiel-mit-Propertys.png"
+                                alt="cert-Attribut als Property des unclear-Knotens"></a>
+            <figcaption class="small">cert- und resp-Attribut und als Propertys des unclear-Knotens</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h5>Zweifelsattribute im DTA-Dokument</h5>
+      <div class="row">
+        <div class="twelve columns"><pre>
+<code class="linenumbers cypher">// Zweifelsattribute im DTA-Dokument
+MATCH (n:XmlTag)
+WHERE n.resp IS NOT NULL
+AND n.cert IS NOT NULL
+RETURN n._name AS Element, n.resp, n.reason, n.cert, count(n.resp) AS Anzahl
+ORDER BY Anzahl DESC
+</code>
+                    </pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h5>Zweifelsattribute im DTA-Dokument</h5>
+      <div class="row">
+        <div class="twelve columns">
+          <figure class="mfp-lightbox"><a href="data/1-Elementanzahl-pro-Person.png" title="<p class='centered'>unclear-Element im Graphen</p>"><img
+                                src="data/1-Elementanzahl-pro-Person.png"
+                                alt="Zweifelsattribute im Graphen"></a>
+            <figcaption class="small">unclear-Element im Graphen</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h3>cert-Attributeverteilung von zwei Editoren im gleichen Dokument</h3>
+      <div class="row">
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/BF-high-low.png" title="<p class='centered'>Werte im @cert-Attribut bei BF</p>"><img
+                        src="data/BF-high-low.png"
+                        alt="Werte im @cert-Attribut bei BF"></a>
+            <figcaption class="small">Werte im @cert-Attribut bei BF</figcaption>
+          </figure>
+        </div>
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/CT-high-low.png" title="<p class='centered'>Werte im @cert-Attribut bei CT</p>"><img
+                          src="data/CT-high-low.png"
+                          alt="Werte im @cert-Attribut bei CT"></a>
+            <figcaption class="small">Werte im @cert-Attribut bei CT</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="step">
+      <h3>cert-Attributeverteilung von zwei Editoren über alle fünf Dokumente</h3>
+      <div class="row">
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/BF-high-low-over-all.png" title="<p class='centered'>Werte im @cert-Attribut bei BF</p>"><img
+                              src="data/BF-high-low-over-all.png"
+                              alt="Werte im @cert-Attribut bei BF"></a>
+            <figcaption class="small">Werte im @cert-Attribut bei BF</figcaption>
+          </figure>
+        </div>
+        <div class="six columns">
+          <figure class="mfp-lightbox"><a href="data/CT-high-low-over-all.png" title="<p class='centered'>Werte im @cert-Attribut bei CT</p>"><img
+                              src="data/CT-high-low-over-all.png"
+                              alt="Werte im @cert-Attribut bei CT"></a>
+            <figcaption class="small">Werte im @cert-Attribut bei CT</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h5 class="down-50">Zuordnung von Annotationen</h2>
+          <div class="row">
+            <div class="eight columns">
+              <figure class="mfp-lightbox"><a href="data/CT-mit-Unsicherheitsknoten.png" title="<p class='centered'>CT mit von ihm verantworteten Annotationen</p>"><img
+                      src="data/CT-mit-Unsicherheitsknoten.png"
+                      alt="CT mit von ihm verantworteten Annotationen"></a>
+                  <figcaption class="small">CT mit von ihm verantworteten Annotationen</figcaption>
+              </figure>
+            </div>
+
+          </div>
+    </div>
+
+    <div class="step">
+      <h1 class="red">Zusammenfassung</h1>
+        <h2>TEI-Zweifel</h2>
+          <ul class="medium">
+            <li class="substep">Interoperabilität ist bei TEI-Subsets wie DTA und WeGA dank großer Nähe zu den TEI-Richtlinien auf Kodierungsebene gegeben</li>
+            <li class="substep">Intersubjektive Nachvollziehbarkeit von <code>cert</code>-Attribut-Angaben für sich alleine genommen schwierig. Das <code>resp</code>-Attribut bietet die Chance, Entscheidungen eines einzelnen Bearbeiters intern zu vergleichen.</li>
+            <li class="substep">Im Graphen ist die Zusammenführung von Annotationen auf Editorenebene leichter</li>
+            <li class="substep">Damit wäre es denkbar für einen Editor einen "Fingerabdruck" zur Anwendung von Zweifelselementen zu erstellen</li>
+          </ul>
+        </div>
+
+    <div class="step">
+      <div class="centered">
+        <h1>Vielen Dank für die Aufmerksamkeit</h1>
+      </div>
+    </div>
+
+    <div class="step">
+
+      <h2>Literatur</h2>
+
+      <ul class="x-small">
+        <li>
+          Burghart, Marjorie/Rehbein, Malte (2012): The Present and Future of the TEI Community for Manuscript Encoding, in: Journal of the Text Encoding Initiative (Issue 2), <a href="http://journals.openedition.org/jtei/372">http://journals.openedition.org/jtei/372</a>,
+          Zugriff: 16.01.2018.
+        </li>
+        <li>
+          Carl-Maria-von-Weber-Gesamtausgabe. Digitale Edition, <a href="http://weber-gesamtausgabe.de/A070001">http://weber-gesamtausgabe.de/A070001</a> (Version 3.2.1 vom 8. Januar 2018) Letzte Änderung dieses Dokuments am 17. Dezember 2017. Zugriff:
+          16.01.2018.
+        </li>
+        <li>
+          DTA-Basisformat: Das von CLARIN-D und der DFG empfohlene TEI-Format für historische Texte, <a href="http://www.deutschestextarchiv.de/doku/basisformat/">http://www.deutschestextarchiv.de/doku/basisformat/</a>, hier besonders: <a href="http://www.deutschestextarchiv.de/doku/basisformat/manuskript.html">http://www.deutschestextarchiv.de/doku/basisformat/manuskript.html</a>,
+          Zugriff: 16.01.2018.
+        </li>
+        <li>
+          Johann Wolfgang Goethe,. Tagebücher. Herausgegeben von Wolfgang Albrecht und Andreas Döhler. Band I,1. 1775–1787. (bisher unveröffentliche retrodigitalisierte Datenfassung)
+        </li>
+        <li>
+          Kuczera, Andreas: Graphentechnologien in den Digitalen Geisteswissenschaften, in: ABI Technik 2017; 37(3): 179–196, DOI: <a href="https://doi.org/10.1515/abitech-2017-0042">https://doi.org/10.1515/abitech-2017-0042</a>
+        </li>
+        <li>
+          Kuczera, Andreas: <a href="http://mittelalter.hypotheses.org/10025">Das Deutsche Textarchiv in der Graphenwelt</a>, in: Mittelalter. Interdisziplinäre Forschung und Rezeptionsgeschichte, 04.04.2017.
+        </li>
+        <li>
+          Patzig, Gotthilf: Vorträge über physische Geographie des Freiherrn Alexander von Humbold: gehalten im großen Hörsaale des Universitäts-Gebäudes zu Berlin im Wintersemester 1827/28 vom 3ten Novbr. 1827. bis 26 April 1828. Aus schriftlichen Notizen nach jedem Vortrage zusammengestellt vom Rechnungsrath Gotthilf Friedrich Patzig. Berlin, 1827/28. [= Nachschrift der ‚Kosmos-Vorträge‛ Alexander von Humboldts in der Berliner Universität, 3.11.1827–26.4.1828]. In: Deutsches Textarchiv <a href="http://www.deutschestextarchiv.de/patzig_msgermfol841842_1828/13">http://www.deutschestextarchiv.de/patzig_msgermfol841842_1828/13</a>, S. 9., abgerufen am 16.01.2018.
+        </li>
+        <li>
+          <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/">TEI Guidelines Version 3.2.0.</a> Last updated on 10th July 2017, revision 0fcf651. Zugriff: 16.01.2018
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="step">
+
+      <h2>Software</h2>
+
+      <h4>Literatur</h4>
+
+      <ul class="medium">
+        <li>
+          <a href="https://github.com/digicademy/impress-js-boilerplate">Impress.js-Boilerplate</a>
+        </li>
+        <li>
+          <a href="https://neo4j.com/">Neo4j Graph Platform</a>
+        </li>
+        <li>
+          <a href="https://www.oxygenxml.com/">Oxygen XML Editor</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="nachweise" class="step">
+      <h2>Rechtliches und Lizenz</h2>
+      <ul class="medium">
+        <li>
+          Die beiden Abbildung <em>Figure 18</em> und <em>Figure 11</em> unterliegen dem Copyright: TEI Consortium 2012 (<a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons Attribution-NoDerivs 3.0 Unported License</a>). Sie stammen
+          aus: <em>Burghart, Marjorie/Rehbein, Malte (2012): The Present and Future of the TEI Community for Manuscript Encoding, in: Journal of the Text Encoding Initiative (Issue 2), <a href="http://journals.openedition.org/jtei/372">http://journals.openedition.org/jtei/372</a>, Zugriff: 16.01.2018.</em>          und wurden inklusive der Bildunterschrift unverändert übernommen.
+        </li>
+        <li>
+          Lizenz für Text und nicht anders deklarierte Abbildungen: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>, Andreas Kuzcera, Dominik Kasper
+        </li>
+      </ul>
+    </div>
+
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+
+    <!-- chartist -->
+    <script src="vendor/chartist/chartist.min-0.9.7.js"></script>
+    <script src="resources/js/chartist.charts.js"></script>
+
+    <!-- codemirror -->
+    <script src="vendor/codemirror/lib/codemirror.js"></script>
+    <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+        mode: "application/sparql-query",
+        matchBrackets: true,
+        lineNumbers: true,
+        viewportMargin: Infinity
+      });
+    </script>
+
+    <!-- highlight -->
+    <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="resources/js/hljs.linenumbering.js"></script>
+
+    <!-- magnific popup -->
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+    <script src="resources/js/magnific-popup.lightbox.js"></script>
+
+    <!-- impress.mod.js -->
+    <script src="vendor/impress/impress.fork.js"></script>
+    <script src="vendor/impress/impress-slidenum.js"></script>
+    <script>
+      var obj = impress();
+      obj.init();
+      initSlideNo(obj);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+.xx-small {
+	font-size: 14px;
+}
+
+div a.tooltip {
+	font-weight: normal !important;
+	color: black !important;
+}
+
+a.tooltip{
+    position:relative;
+}
+a.tooltip::after{
+	content: " [\2190 Tooltip mit Erklärung]";
+}
+a.tooltip::before {
+    content: attr(data-tooltip) ;
+    font-size: 16px;
+    position:absolute;
+		z-index: 999;
+    left: 0;
+    background:#000;
+    color:#e0e0e0;
+    padding:7px 7px 7px 7px;
+    line-height: 24px;
+    height: auto;
+		width: 400px;
+    opacity: 0;
+}
+a.tooltip:hover::before {
+    opacity: 1;
+    top:22px;
+}
+a.tooltip:hover::after {
+    opacity: 1;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+    z-index: 999;
+    position:absolute;
+    white-space:nowrap;
+    top:17px;
+    left: 0px;
+		content: "";
+}
+
+li {
+	line-height: 1.5;
+}
